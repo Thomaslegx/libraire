@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Imagin'à Lire</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"></noscript>
     <style>
         :root {
             --primary: #592e3a;
@@ -156,6 +158,7 @@
         .hero-section {
             width: 100%;
             height: 45vh;
+            height: 45svh; /* hauteur stable sur mobile : ignore l'apparition/disparition de la barre d'adresse */
             min-height: 280px;
             background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3)), url('ext.jpg');
             background-size: cover;
@@ -358,6 +361,16 @@
             border: 1px solid #eee;
             background: #fafafa;
             margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #bbb;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+        }
+
+        .facebook-box:not(:has(iframe))::before {
+            content: 'Chargement des actualités…';
         }
 
         .facebook-box iframe {
@@ -483,13 +496,7 @@
             <div class="card reveal">
                 <h2><i class="fa-brands fa-facebook" style="color: var(--accent);"></i> Actualités</h2>
                 
-                <div class="facebook-box">
-                    <iframe 
-                        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Flibrairieimaginalire&tabs=timeline&width=400&height=460&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false" 
-                        scrolling="yes" 
-                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-                    </iframe>
-                </div>
+                <div class="facebook-box" data-fb-src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Flibrairieimaginalire&tabs=timeline&width=400&height=460&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false"></div>
 
                 <div class="social-buttons">
                     <a href="https://instagram.com/librairieimaginalire" target="_blank" class="btn-social btn-instagram">
@@ -569,15 +576,65 @@
         // --- Header qui se rétracte au scroll (style apple.com) ---
         const siteHeader = document.querySelector('header');
         let lastScrollState = false;
-        function updateHeader() {
-            const shouldShrink = window.scrollY > 40;
+        let tickingHeader = false;
+
+        function applyHeaderState() {
+            // Hystérésis : seuils différents pour rétrécir (60px) et pour revenir (20px).
+            // Sans ça, un scroll qui oscille pile autour d'une seule valeur (rebond iOS,
+            // micro-mouvements tactiles) fait basculer la classe en boucle -> le header
+            // "vibre" en rétrécissant/agrandissant sans arrêt.
+            const y = Math.max(0, window.scrollY);
+            let shouldShrink = lastScrollState;
+            if (y > 60) shouldShrink = true;
+            else if (y < 20) shouldShrink = false;
+
             if (shouldShrink !== lastScrollState) {
                 siteHeader.classList.toggle('scrolled', shouldShrink);
                 lastScrollState = shouldShrink;
             }
+            tickingHeader = false;
+        }
+
+        function updateHeader() {
+            if (!tickingHeader) {
+                tickingHeader = true;
+                requestAnimationFrame(applyHeaderState);
+            }
         }
         window.addEventListener('scroll', updateHeader, { passive: true });
         updateHeader();
+
+        // --- Chargement différé du module Facebook ---
+        // Le plugin Facebook est la ressource la plus lourde de la page (SDK + trackers).
+        // On ne l'injecte que lorsque sa carte approche de l'écran, au lieu de la charger
+        // systématiquement dès l'ouverture de la page.
+        const fbBox = document.querySelector('.facebook-box');
+        if (fbBox) {
+            const loadFacebook = () => {
+                if (fbBox.dataset.loaded) return;
+                fbBox.dataset.loaded = 'true';
+                const iframe = document.createElement('iframe');
+                iframe.src = fbBox.dataset.fbSrc;
+                iframe.loading = 'lazy';
+                iframe.scrolling = 'yes';
+                iframe.allow = 'autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share';
+                fbBox.appendChild(iframe);
+            };
+
+            if ('IntersectionObserver' in window) {
+                const fbObserver = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            loadFacebook();
+                            fbObserver.disconnect();
+                        }
+                    });
+                }, { rootMargin: '200px' });
+                fbObserver.observe(fbBox);
+            } else {
+                loadFacebook();
+            }
+        }
 
         // --- Révélation des éléments au scroll (style Tesla) ---
         const revealElements = document.querySelectorAll('.reveal');
