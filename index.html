@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page · Librairie indépendante</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            /* Palette de couleurs harmonisée (Bordeaux/Vieux rose) */
+            --primary: #592e3a; /* Bordeaux foncé pour le fond du header et footer */
+            --accent: #b57a8a; /* Vieux rose pour les accents et les icônes */
+            --bg-light: #fefcfb; /* Fond très clair et légèrement chaud */
+            --text: #2c3e50; /* Couleur du texte principal */
+            --card-bg: #ffffff;
+            --font-family-serif: 'Georgia', serif;
+            --font-family-sans: 'Helvetica Neue', Arial, sans-serif;
+            --header-bg: #ffffff; /* Fond blanc pour le logo */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text);
+            line-height: 1.6;
+            font-family: var(--font-family-serif);
+        }
+
+        header {
+            background-color: var(--header-bg);
+            color: var(--primary);
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            text-align: left;
+        }
+
+        .header-logo {
+            max-width: 100px;
+            height: auto;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-text h1 {
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.3rem;
+            font-weight: 700;
+        }
+
+        .header-text p {
+            font-style: italic;
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        /* Hero Image Section (ext.jpg) */
+        .hero-section {
+            width: 100%;
+            height: 50vh;
+            background-image: url('ext.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: -4rem auto 2rem auto;
+            padding: 0 1rem;
+            position: relative;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            font-family: var(--font-family-sans);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .status-badge.closed {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            align-items: stretch;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card h2 {
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            font-size: 1.4rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        /* Horaires */
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: var(--font-family-sans);
+            font-size: 0.95rem;
+        }
+
+        .hours-table tr {
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .hours-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .hours-table td {
+            padding: 0.5rem 0;
+        }
+
+        .hours-table .day {
+            font-weight: bold;
+            text-transform: capitalize;
+            width: 35%;
+        }
+
+        .hours-table .hours {
+            text-align: right;
+            color: #555;
+        }
+
+        .hours-table .closed-day {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .info-item {
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .info-item i {
+            color: var(--accent);
+            margin-top: 5px;
+            width: 20px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .info-item div {
+            flex: 1;
+        }
+
+        /* Style de la carte Google Maps */
+        .map-container {
+            margin-top: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 180px;
+            border: 0;
+            display: block;
+        }
+
+        /* Style du conteneur du flux Facebook */
+        .facebook-feed-wrapper {
+            width: 100%;
+            flex: 1;
+            min-height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #f7f7f7;
+            border: 1px solid #eaeaea;
+        }
+
+        .facebook-feed-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            border: none;
+        }
+
+        a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent);
+        }
+
+        .social-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 1.2rem;
+        }
+
+        .btn-social {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: white;
+            padding: 0.7rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-family: var(--font-family-sans);
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: opacity 0.2s, transform 0.2s;
+            width: 100%;
+        }
+
+        .btn-instagram {
+            background: #e1306c;
+        }
+
+        .btn-facebook {
+            background: #1877f2;
+        }
+
+        .btn-social:hover {
+            color: white;
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            padding: 2.5rem 1rem;
+            font-size: 0.9rem;
+            margin-top: 4rem;
+            font-family: var(--font-family-sans);
+        }
+
+        /* Ajustements pour mobile */
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.5rem 1rem;
+                gap: 10px;
+            }
+
+            .header-logo {
+                max-width: 80px;
+            }
+
+            .header-text h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-section {
+                height: 35vh;
+            }
+
+            .container {
+                margin-top: -2rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- Logo de la librairie (logo.jpg) -->
+        <img src="logo.jpg" alt="Logo de la librairie Page, Imagin'à Lire" class="header-logo">
+        <div class="header-text">
+            <h1>PAGE</h1>
+            <p>Librairie indépendante</p>
+        </div>
+    </header>
+
+    <!-- Image d'extérieur de la librairie (ext.jpg) -->
+    <div class="hero-section"></div>
+
+    <div class="container">
+        
+        <!-- Badge de statut centré -->
+        <div style="text-align: center;">
+            <span class="status-badge closed"><i class="fa-solid fa-door-closed"></i> Fermé actuellement</span>
+        </div>
+
+        <div class="grid">
+            
+            <!-- Colonne 1 : Horaires d'ouverture -->
+            <div class="card">
+                <h2><i class="fa-regular fa-clock" style="color: var(--accent); margin-right: 8px;"></i> Horaires</h2>
+                <table class="hours-table">
+                    <tr>
+                        <td class="day">Lundi</td>
+                        <td class="hours">09:00 – 12:00</td>
+                    </tr>
+                    <tr>
+                        <td class="day">Mardi</td>
+                        <td class="hours">09:00 – 12:00<br>14:30 – 18:30</td>
+                    </tr>
+                    <tr>
+                        <td class="day">Mercredi</td>
+                        <td class="hours">09:00 – 12:00<br>14:30 – 18:30</td>
+                    </tr>
+                    <tr>
+                        <td class="day">Jeudi</td>
+                        <td class="hours">09:00 – 12:00<br>14:30 – 18:30</td>
+                    </tr>
+                    <tr>
+                        <td class="day">Vendredi</td>
+                        <td class="hours">09:00 – 12:00<br>14:30 – 18:30</td>
+                    </tr>
+                    <tr>
+                        <td class="day">Samedi</td>
+                        <td class="hours">09:00 – 12:00<br>14:30 – 18:00</td>
+                    </tr>
+                    <tr>
+                        <td class="day">Dimanche</td>
+                        <td class="hours closed-day">Fermé</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Colonne 2 : Information de contact & Accès avec Google Maps -->
+            <div class="card">
+                <h2>Nous trouver</h2>
+                
+                <div class="info-item">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    <div>
+                        <strong>Adresse :</strong><br>
+                        8 Place du Général de Gaulle<br>
+                        38440 Saint-Jean-de-Bournay
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <strong>Téléphone :</strong><br>
+                        <a href="tel:0674434154">06 74 43 41 54</a>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <strong>Email :</strong><br>
+                        <a href="mailto:imagin-a-lire@orange.fr">imagin-a-lire@orange.fr</a>
+                    </div>
+                </div>
+
+                <!-- Intégration Carte Google Maps -->
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2793.811802951717!2d5.1362706!3d45.5540941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4d38c644158d7%3A0x6b9d6a36f6d63d0a!2s8%20Pl.%20du%20G%C3%A9n%C3%A9ral%20de%20Gaulle%2C%2038440%20Saint-Jean-de-Bournay!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Colonne 3 (Tout à droite) : Fil d'actualité Facebook -->
+            <div class="card">
+                <h2>Actualités Facebook</h2>
+                
+                <!-- Plugin d'intégration Facebook -->
+                <div class="facebook-feed-wrapper">
+                    <iframe 
+                        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Flibrairieimaginalire&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false" 
+                        scrolling="yes" 
+                        frameborder="0" 
+                        allowfullscreen="true" 
+                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                    </iframe>
+                </div>
+
+                <!-- Boutons réseaux sociaux -->
+                <div class="social-buttons">
+                    <a href="https://instagram.com/librairieimaginalire" target="_blank" class="btn-social btn-instagram">
+                        <i class="fa-brands fa-instagram"></i> Suivre sur Instagram
+                    </a>
+                    <a href="https://www.facebook.com/librairieimaginalire" target="_blank" class="btn-social btn-facebook">
+                        <i class="fa-brands fa-facebook"></i> Ouvrir Facebook
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; Page · Librairie indépendante — Imagin'à Lire — Tous droits réservés</p>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.6;">8 Place du Général de Gaulle, 38440 Saint-Jean-de-Bournay</p>
+    </footer>
+
+</body>
+</html>
