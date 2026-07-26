@@ -141,10 +141,6 @@
             font-size: 0.95rem;
         }
 
-        .header-logo:hover {
-            transform: rotate(5deg) scale(1.05);
-        }
-
         .header-text p {
             font-style: italic;
             color: var(--primary);
@@ -224,11 +220,6 @@
                         box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
-        }
-
         .card h2 {
             color: var(--primary);
             margin-bottom: 1.5rem;
@@ -252,10 +243,6 @@
             transition: var(--transition);
         }
 
-        .card:hover h2::after {
-            width: 75px;
-        }
-
         /* --- Content : Horaires --- */
         .hours-table {
             width: 100%;
@@ -267,10 +254,6 @@
         .hours-table tr {
             border-bottom: 1px solid #f3ecef;
             transition: background-color 0.2s;
-        }
-
-        .hours-table tr:hover {
-            background-color: #faf3f5;
         }
 
         .hours-table tr:last-child {
@@ -321,20 +304,11 @@
             transition: var(--transition);
         }
 
-        .info-item:hover i {
-            background: var(--primary);
-            transform: scale(1.1);
-        }
-
         .info-item a {
             color: var(--text);
             text-decoration: none;
             font-weight: 600;
             transition: color 0.2s;
-        }
-
-        .info-item a:hover {
-            color: var(--accent);
         }
 
         .map-container {
@@ -398,13 +372,6 @@
             background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
         }
 
-        .btn-social:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 18px rgba(0,0,0,0.18);
-            opacity: 0.95;
-            color: white;
-        }
-
         /* --- Footer --- */
         footer {
             background-color: var(--primary);
@@ -418,6 +385,45 @@
 
         footer p {
             margin-bottom: 0.4rem;
+        }
+
+        /* --- Effets au survol : uniquement pour les vrais pointeurs (souris) ---
+           Sur tactile, ":hover" se déclenche au doigt et reste parfois "collé" ou
+           légèrement décalé après le relâchement : ça donne une sensation de lag.
+           On réserve donc tous ces effets aux appareils qui ont une souris. --- */
+        @media (hover: hover) and (pointer: fine) {
+            .header-logo:hover {
+                transform: rotate(5deg) scale(1.05);
+            }
+
+            .card:hover {
+                transform: translateY(-8px);
+                box-shadow: var(--shadow-hover);
+            }
+
+            .card:hover h2::after {
+                width: 75px;
+            }
+
+            .hours-table tr:hover {
+                background-color: #faf3f5;
+            }
+
+            .info-item:hover i {
+                background: var(--primary);
+                transform: scale(1.1);
+            }
+
+            .info-item a:hover {
+                color: var(--accent);
+            }
+
+            .btn-social:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+                opacity: 0.95;
+                color: white;
+            }
         }
 
         /* --- Responsive Mobile Optimisé --- */
@@ -600,26 +606,10 @@
         window.addEventListener('scroll', updateHeader, { passive: true });
         updateHeader();
 
-        // --- Révélation des éléments au scroll (style Tesla) ---
-        const revealElements = document.querySelectorAll('.reveal');
-        if ('IntersectionObserver' in window) {
-            const revealObserver = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('in-view');
-                        revealObserver.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.15,
-                rootMargin: '0px 0px -60px 0px'
-            });
-
-            revealElements.forEach((el) => revealObserver.observe(el));
-        } else {
-            // Fallback si IntersectionObserver n'est pas supporté
-            revealElements.forEach((el) => el.classList.add('in-view'));
-        }
+        // --- Affichage des cartes : immédiat, sans attendre le scroll ---
+        // (avant : les cartes restaient invisibles tant qu'on ne scrollait pas jusqu'à elles,
+        // ce qui donnait une impression de lenteur/lag à l'apparition)
+        document.querySelectorAll('.reveal').forEach((el) => el.classList.add('in-view'));
     </script>
 
 </body>
