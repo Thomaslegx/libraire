@@ -361,16 +361,6 @@
             border: 1px solid #eee;
             background: #fafafa;
             margin-bottom: 1.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #bbb;
-            font-family: var(--font-sans);
-            font-size: 0.9rem;
-        }
-
-        .facebook-box:not(:has(iframe))::before {
-            content: 'Chargement des actualités…';
         }
 
         .facebook-box iframe {
@@ -496,7 +486,13 @@
             <div class="card reveal">
                 <h2><i class="fa-brands fa-facebook" style="color: var(--accent);"></i> Actualités</h2>
                 
-                <div class="facebook-box" data-fb-src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Flibrairieimaginalire&tabs=timeline&width=400&height=460&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false"></div>
+                <div class="facebook-box">
+                    <iframe 
+                        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Flibrairieimaginalire&tabs=timeline&width=400&height=460&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false" 
+                        scrolling="yes" 
+                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                    </iframe>
+                </div>
 
                 <div class="social-buttons">
                     <a href="https://instagram.com/librairieimaginalire" target="_blank" class="btn-social btn-instagram">
@@ -603,38 +599,6 @@
         }
         window.addEventListener('scroll', updateHeader, { passive: true });
         updateHeader();
-
-        // --- Chargement différé du module Facebook ---
-        // Le plugin Facebook est la ressource la plus lourde de la page (SDK + trackers).
-        // On ne l'injecte que lorsque sa carte approche de l'écran, au lieu de la charger
-        // systématiquement dès l'ouverture de la page.
-        const fbBox = document.querySelector('.facebook-box');
-        if (fbBox) {
-            const loadFacebook = () => {
-                if (fbBox.dataset.loaded) return;
-                fbBox.dataset.loaded = 'true';
-                const iframe = document.createElement('iframe');
-                iframe.src = fbBox.dataset.fbSrc;
-                iframe.loading = 'lazy';
-                iframe.scrolling = 'yes';
-                iframe.allow = 'autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share';
-                fbBox.appendChild(iframe);
-            };
-
-            if ('IntersectionObserver' in window) {
-                const fbObserver = new IntersectionObserver((entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            loadFacebook();
-                            fbObserver.disconnect();
-                        }
-                    });
-                }, { rootMargin: '200px' });
-                fbObserver.observe(fbBox);
-            } else {
-                loadFacebook();
-            }
-        }
 
         // --- Révélation des éléments au scroll (style Tesla) ---
         const revealElements = document.querySelectorAll('.reveal');
