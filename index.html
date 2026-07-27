@@ -3,13 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Imagin'à Lire</title>
+    <title>Imagin'à Lire – Librairie indépendante à Saint-Jean-de-Bournay (38)</title>
+    <meta name="description" content="Imagin'à Lire, librairie indépendante au 8 Place du Général de Gaulle à Saint-Jean-de-Bournay (Isère). Horaires, actualités et contact.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Imagin'à Lire">
+    <!-- ⚠️ Remplacez cette URL par votre vrai nom de domaine avant mise en ligne -->
+    <link rel="canonical" href="https://www.imagin-a-lire.fr/">
+
+    <!-- Open Graph (partage Facebook / réseaux sociaux) -->
+    <meta property="og:type" content="business.business">
+    <meta property="og:title" content="Imagin'à Lire – Librairie indépendante à Saint-Jean-de-Bournay">
+    <meta property="og:description" content="Librairie indépendante au 8 Place du Général de Gaulle, 38440 Saint-Jean-de-Bournay. Horaires, actualités et localisation.">
+    <meta property="og:image" content="https://www.imagin-a-lire.fr/logo.jpg">
+    <meta property="og:url" content="https://www.imagin-a-lire.fr/">
+    <meta property="og:locale" content="fr_FR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Imagin'à Lire – Librairie indépendante à Saint-Jean-de-Bournay">
+    <meta name="twitter:description" content="Librairie indépendante au 8 Place du Général de Gaulle, 38440 Saint-Jean-de-Bournay.">
+    <meta name="twitter:image" content="https://www.imagin-a-lire.fr/logo.jpg">
+
     <link rel="icon" type="image/jpeg" href="logo.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="logo_apple.png">
     <link rel="icon" type="image/png" sizes="192x192" href="logo_android.png">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"></noscript>
+
+    <!-- Préchargement de l'image héro : elle est visible dès le chargement, ça améliore le LCP (Core Web Vitals) -->
+    <link rel="preload" as="image" href="ext.jpg">
+
+    <!-- Données structurées Schema.org : aide Google à afficher horaires / adresse / téléphone directement dans les résultats -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BookStore",
+      "name": "Imagin'à Lire",
+      "image": "https://www.imagin-a-lire.fr/logo.jpg",
+      "telephone": "+33674434154",
+      "email": "imagin-a-lire@orange.fr",
+      "url": "https://www.imagin-a-lire.fr/",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "8 Place du Général de Gaulle",
+        "addressLocality": "Saint-Jean-de-Bournay",
+        "postalCode": "38440",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 45.5540941,
+        "longitude": 5.1362706
+      },
+      "sameAs": [
+        "https://www.facebook.com/librairieimaginalire",
+        "https://instagram.com/librairieimaginalire"
+      ],
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "09:00", "closes": "12:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "09:00", "closes": "12:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "14:30", "closes": "18:30" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "09:00", "closes": "12:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "14:30", "closes": "18:30" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "09:00", "closes": "12:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "14:30", "closes": "18:30" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "09:00", "closes": "12:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "14:30", "closes": "18:30" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "12:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "14:30", "closes": "18:00" }
+      ]
+    }
+    </script>
     <style>
         :root {
             --primary: #592e3a;
@@ -146,6 +211,18 @@
             font-size: 0.95rem;
         }
 
+        .brand-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+            margin-bottom: 0.15rem;
+        }
+
+        header.scrolled .brand-title {
+            font-size: 0.9rem;
+        }
+
         .header-text p {
             font-style: italic;
             color: var(--primary);
@@ -202,6 +279,11 @@
 
         .status-badge.closed {
             background-color: #e74c3c;
+            color: white;
+        }
+
+        .status-badge.open {
+            background-color: #27ae60;
             color: white;
         }
 
@@ -498,11 +580,16 @@
 </head>
 <body>
 
+    <!-- Requis par le plugin Facebook (fb-page) juste en dessous -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v19.0"></script>
+
     <!-- Header avec Logo -->
     <header>
-        <img src="logo.jpg" alt="Logo Imagin'à Lire" class="header-logo">
+        <img src="logo.jpg" alt="Logo Imagin'à Lire" class="header-logo" width="90" height="90">
         <div class="header-text">
-            <p>Librairie indépendante</p>
+            <h1 class="brand-title">Imagin'à Lire</h1>
+            <p>Librairie indépendante à Saint-Jean-de-Bournay</p>
         </div>
     </header>
 
@@ -513,8 +600,8 @@
         
         <!-- Badge de statut -->
         <div class="status-container reveal">
-            <span class="status-badge closed">
-                <i class="fa-solid fa-door-closed"></i> Fermé actuellement
+            <span class="status-badge closed" id="status-badge">
+                <i class="fa-solid fa-door-closed" id="status-icon"></i> <span id="status-text">Fermé actuellement</span>
             </span>
         </div>
 
@@ -525,15 +612,23 @@
                 <h2><i class="fa-brands fa-facebook" style="color: var(--accent);"></i> Actualités</h2>
                 
                 <div class="facebook-box">
-                    <iframe 
-                        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Flibrairieimaginalire&tabs=timeline&width=400&height=460&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false" 
-                        scrolling="yes" 
-                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-                    </iframe>
+                    <div class="fb-page"
+                        data-href="https://www.facebook.com/librairieimaginalire"
+                        data-tabs="timeline"
+                        data-width=""
+                        data-height="460"
+                        data-small-header="true"
+                        data-adapt-container-width="true"
+                        data-hide-cover="false"
+                        data-show-facepile="false">
+                        <blockquote cite="https://www.facebook.com/librairieimaginalire" class="fb-xfbml-parse-ignore">
+                            <a href="https://www.facebook.com/librairieimaginalire">Imagin'à Lire</a>
+                        </blockquote>
+                    </div>
                 </div>
 
                 <div class="social-buttons">
-                    <a href="https://instagram.com/librairieimaginalire" target="_blank" class="btn-social btn-instagram">
+                    <a href="https://instagram.com/librairieimaginalire" target="_blank" rel="noopener noreferrer" class="btn-social btn-instagram">
                         <i class="fa-brands fa-instagram fa-lg"></i> Suivre sur Instagram
                     </a>
                 </div>
@@ -585,6 +680,7 @@
                 <div class="map-container">
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2793.811802951717!2d5.1362706!3d45.5540941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4d38c644158d7%3A0x6b9d6a36f6d63d0a!2s8%20Pl.%20du%20G%C3%A9n%C3%A9ral%20de%20Gaulle%2C%2038440%20Saint-Jean-de-Bournay!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr" 
+                        title="Localisation Imagin'à Lire sur Google Maps"
                         allowfullscreen="" 
                         loading="lazy">
                     </iframe>
@@ -642,6 +738,51 @@
         // (avant : les cartes restaient invisibles tant qu'on ne scrollait pas jusqu'à elles,
         // ce qui donnait une impression de lenteur/lag à l'apparition)
         document.querySelectorAll('.reveal').forEach((el) => el.classList.add('in-view'));
+
+        // --- Badge Ouvert / Fermé automatique, basé sur les horaires réels ---
+        // Format : [ [heureDébut, minuteDébut, heureFin, minuteFin], ... ] par jour.
+        // Index : 0 = dimanche, 1 = lundi, ... 6 = samedi (comme Date.getDay()).
+        const openingHours = {
+            0: [],                                   // Dimanche : fermé
+            1: [[9, 0, 12, 0]],                       // Lundi
+            2: [[9, 0, 12, 0], [14, 30, 18, 30]],     // Mardi
+            3: [[9, 0, 12, 0], [14, 30, 18, 30]],     // Mercredi
+            4: [[9, 0, 12, 0], [14, 30, 18, 30]],     // Jeudi
+            5: [[9, 0, 12, 0], [14, 30, 18, 30]],     // Vendredi
+            6: [[9, 0, 12, 0], [14, 30, 18, 0]],      // Samedi
+        };
+
+        function updateOpenStatus() {
+            const badge = document.getElementById('status-badge');
+            const icon = document.getElementById('status-icon');
+            const text = document.getElementById('status-text');
+            if (!badge) return;
+
+            const now = new Date();
+            const minutesNow = now.getHours() * 60 + now.getMinutes();
+            const ranges = openingHours[now.getDay()] || [];
+
+            const isOpen = ranges.some(([h1, m1, h2, m2]) => {
+                const start = h1 * 60 + m1;
+                const end = h2 * 60 + m2;
+                return minutesNow >= start && minutesNow < end;
+            });
+
+            if (isOpen) {
+                badge.classList.remove('closed');
+                badge.classList.add('open');
+                icon.className = 'fa-solid fa-door-open';
+                text.textContent = 'Ouvert actuellement';
+            } else {
+                badge.classList.remove('open');
+                badge.classList.add('closed');
+                icon.className = 'fa-solid fa-door-closed';
+                text.textContent = 'Fermé actuellement';
+            }
+        }
+
+        updateOpenStatus();
+        setInterval(updateOpenStatus, 60000); // Revérifie chaque minute
     </script>
 
 </body>
