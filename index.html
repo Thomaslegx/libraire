@@ -7,12 +7,12 @@
     <meta name="description" content="Imagin'à Lire, librairie indépendante au 8 Place du Général de Gaulle à Saint-Jean-de-Bournay (Isère). Horaires, actualités et contact.">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Imagin'à Lire">
-    <!-- ⚠️ Remplacez cette URL par votre vrai nom de domaine avant mise en ligne -->
+    <!-- Remplacez cette URL par votre vrai nom de domaine avant mise en ligne -->
     <link rel="canonical" href="https://imaginalire.onrender.com/">
     <meta name="application-name" content="Imagin'à Lire">
     <meta name="apple-mobile-web-app-title" content="Imagin'à Lire">
+    <meta name="theme-color" content="#592e3a">
 
-    <!-- Open Graph (partage Facebook / réseaux sociaux) -->
     <meta property="og:type" content="business.business">
     <meta property="og:site_name" content="Imagin'à Lire">
     <meta property="og:title" content="Imagin'à Lire – Librairie Saint-Jean-de-Bournay">
@@ -21,33 +21,20 @@
     <meta property="og:url" content="https://imaginalire.onrender.com/">
     <meta property="og:locale" content="fr_FR">
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Imagin'à Lire – Librairie indépendante à Saint-Jean-de-Bournay">
     <meta name="twitter:description" content="Librairie indépendante au 8 Place du Général de Gaulle, 38440 Saint-Jean-de-Bournay.">
     <meta name="twitter:image" content="https://imaginalire.onrender.com/logo.jpg">
 
-    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
-    <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64x64.png">
-    <link rel="icon" type="image/png" sizes="128x128" href="/favicon-128x128.png">
-    <link rel="icon" type="image/png" sizes="256x256" href="/favicon-256x256.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png">
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-256x256.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"></noscript>
 
-    <!-- Préchargement de l'image héro : elle est visible dès le chargement, ça améliore le LCP (Core Web Vitals) -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="preload" as="image" href="ext.jpg">
 
-    <!-- Données structurées Schema.org : aide Google à afficher horaires / adresse / téléphone directement dans les résultats -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -64,36 +51,25 @@
         "postalCode": "38440",
         "addressCountry": "FR"
       },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 45.5540941,
-        "longitude": 5.1362706
-      },
+      "geo": { "@type": "GeoCoordinates", "latitude": 45.5540941, "longitude": 5.1362706 },
       "sameAs": [
         "https://www.facebook.com/librairieimaginalire",
         "https://instagram.com/librairieimaginalire"
       ],
       "openingHoursSpecification": [
         { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "09:00", "closes": "12:00" },
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "09:00", "closes": "12:00" },
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "14:30", "closes": "18:30" },
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "09:00", "closes": "12:00" },
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "14:30", "closes": "18:30" },
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "09:00", "closes": "12:00" },
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "14:30", "closes": "18:30" },
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "09:00", "closes": "12:00" },
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "14:30", "closes": "18:30" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "12:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"], "opens": "14:30", "closes": "18:30" },
         { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "12:00" },
         { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "14:30", "closes": "18:00" }
       ]
     }
     </script>
+
     <style>
         :root {
             --primary: #592e3a;
-            --primary-light: #733f4e;
             --accent: #b57a8a;
-            --accent-hover: #9c6071;
             --bg-light: #faf7f5;
             --text: #2c3e50;
             --card-bg: #ffffff;
@@ -101,18 +77,11 @@
             --font-sans: 'Helvetica Neue', Arial, sans-serif;
             --shadow-soft: 0 10px 30px rgba(89, 46, 58, 0.08);
             --shadow-hover: 0 18px 40px rgba(89, 46, 58, 0.15);
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
 
         body {
             background-color: var(--bg-light);
@@ -120,59 +89,21 @@
             line-height: 1.6;
             font-family: var(--font-serif);
             overflow-x: hidden;
-            opacity: 0;
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        body.page-loaded {
-            opacity: 1;
+        a:focus-visible, .btn-social:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 3px;
         }
 
-        /* --- Animations CSS --- */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(24px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
-
-        @keyframes pulseBadge {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-            100% { transform: scale(1); }
-        }
-
         @keyframes kenBurns {
-            from {
-                transform: scale(1.12);
-            }
-            to {
-                transform: scale(1);
-            }
+            from { transform: scale(1.1); }
+            to   { transform: scale(1); }
         }
-
-        /* --- Reveal au scroll (style Apple / Tesla) --- */
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px) scale(0.98);
-            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
-                        transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-            will-change: opacity, transform;
-        }
-
-        .reveal.in-view {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-
-        /* Cascade légère sur les cartes de la grille */
-        .grid .card.reveal:nth-child(1) { transition-delay: 0s; }
-        .grid .card.reveal:nth-child(2) { transition-delay: 0.12s; }
-        .grid .card.reveal:nth-child(3) { transition-delay: 0.24s; }
 
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
@@ -185,125 +116,96 @@
 
         /* --- Header --- */
         header {
-            background: #ffffff;
+            background: #fff;
             color: var(--primary);
-            padding: 2.5rem 1rem 2rem 1rem;
+            padding: 2.5rem 1rem 2rem;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 20px;
             box-shadow: 0 2px 15px rgba(0,0,0,0.03);
-            animation: fadeInUp 0.6s ease-out;
             position: sticky;
             top: 0;
             z-index: 100;
-            transition: padding 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                        box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: padding 0.5s var(--ease), box-shadow 0.5s var(--ease);
         }
-
-        header.scrolled {
-            padding: 0.9rem 1rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
+        header.scrolled { padding: 0.9rem 1rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
 
         .header-logo {
             max-width: 90px;
             height: auto;
             border-radius: 50%;
             box-shadow: 0 4px 12px rgba(89, 46, 58, 0.15);
-            transition: var(--transition), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            transform-origin: center;
-            will-change: transform;
+            transition: transform 0.5s var(--ease);
         }
-
-        header.scrolled .header-logo {
-            transform: scale(0.53);
-        }
-
-        header.scrolled .header-text p {
-            font-size: 0.95rem;
-        }
+        header.scrolled .header-logo { transform: scale(0.53); }
 
         .brand-title {
             font-size: 1.05rem;
             font-weight: 700;
-            color: var(--primary);
             letter-spacing: 0.5px;
             margin-bottom: 0.15rem;
+            transition: font-size 0.5s var(--ease);
         }
-
-        header.scrolled .brand-title {
-            font-size: 0.9rem;
-        }
+        header.scrolled .brand-title { font-size: 0.9rem; }
 
         .header-text p {
             font-style: italic;
-            color: var(--primary);
             font-size: 1.2rem;
             font-weight: 600;
             letter-spacing: 1px;
-            transition: font-size 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: font-size 0.5s var(--ease);
         }
+        header.scrolled .header-text p { font-size: 0.95rem; }
 
-        /* --- Hero Banner --- */
+        /* --- Bannière --- */
         .hero-section {
             width: 100%;
             height: 45vh;
-            height: 45svh; /* hauteur stable sur mobile : ignore l'apparition/disparition de la barre d'adresse */
+            height: 45svh;
             min-height: 280px;
             background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3)), url('ext.jpg');
             background-size: cover;
             background-position: center;
-            position: relative;
             overflow: hidden;
-            animation: kenBurns 8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            transform-origin: center;
+            animation: kenBurns 8s var(--ease) forwards;
         }
 
-        /* --- Container Principal --- */
         .container {
             max-width: 1180px;
-            margin: -5rem auto 3rem auto;
+            margin: -5rem auto 3rem;
             padding: 0 1.2rem;
             position: relative;
             z-index: 10;
+            animation: fadeInUp 0.8s var(--ease) both;
         }
 
-        /* --- Badge Statut --- */
-        .status-container {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
+        /* --- Badge de statut --- */
+        .status-container { text-align: center; margin-bottom: 2rem; }
 
         .status-badge {
             display: inline-flex;
+            flex-direction: column;
             align-items: center;
-            gap: 10px;
-            padding: 0.6rem 1.6rem;
-            border-radius: 50px;
+            padding: 0.6rem 1.8rem;
+            border-radius: 28px;
             font-family: var(--font-sans);
-            font-size: 0.95rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
+            color: #fff;
             box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-            backdrop-filter: blur(5px);
-            animation: pulseBadge 3s infinite ease-in-out;
+            background-color: var(--primary);
+            transition: background-color 0.4s;
         }
+        .status-badge.closed { background-color: #c0392b; }
+        .status-badge.open   { background-color: #27ae60; }
 
-        .status-badge.closed {
-            background-color: #e74c3c;
-            color: white;
-        }
+        .status-main { font-size: 0.95rem; font-weight: 700; letter-spacing: 0.5px; display: flex; align-items: center; gap: 10px; }
+        .status-sub  { font-size: 0.8rem; opacity: 0.92; }
+        .status-sub:empty { display: none; }
 
-        .status-badge.open {
-            background-color: #27ae60;
-            color: white;
-        }
-
-        /* --- Grille & Cartes --- */
+        /* --- Grille & cartes --- */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
             gap: 2rem;
             align-items: stretch;
         }
@@ -316,30 +218,7 @@
             border: 1px solid rgba(89, 46, 58, 0.05);
             display: flex;
             flex-direction: column;
-            position: relative;
-            z-index: 0;
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                        box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            will-change: transform;
-            backface-visibility: hidden;
-        }
-
-        /* Légère ombre "flottante" en dessous de chaque carte, façon élément posé sur la page */
-        .card::before {
-            content: '';
-            position: absolute;
-            left: 8%;
-            right: 8%;
-            bottom: -10px;
-            height: 26px;
-            background: rgba(89, 46, 58, 0.20);
-            filter: blur(14px);
-            border-radius: 50%;
-            z-index: -1;
-            opacity: 0.55;
-            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                        transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            will-change: opacity, transform;
+            transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
         }
 
         .card h2 {
@@ -352,7 +231,6 @@
             align-items: center;
             gap: 10px;
         }
-
         .card h2::after {
             content: '';
             position: absolute;
@@ -362,47 +240,21 @@
             height: 3px;
             background: var(--accent);
             border-radius: 3px;
-            transition: var(--transition);
+            transition: width 0.4s var(--ease);
         }
 
-        /* --- Content : Horaires --- */
-        .hours-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-family: var(--font-sans);
-            font-size: 0.95rem;
-        }
+        /* --- Horaires --- */
+        .hours-table { width: 100%; border-collapse: collapse; font-family: var(--font-sans); font-size: 0.95rem; }
+        .hours-table tr { border-bottom: 1px solid #f3ecef; }
+        .hours-table tr:last-child { border-bottom: none; }
+        .hours-table td { padding: 0.65rem 0.5rem; }
+        .hours-table .day { font-weight: 600; color: var(--primary); width: 35%; }
+        .hours-table .hours { text-align: right; color: #555; }
+        .hours-table .closed-day { color: #c0392b; font-weight: 700; }
+        .hours-table tr.today { background: #faf3f5; box-shadow: inset 3px 0 0 var(--accent); }
+        .hours-table tr.today .day::after { content: " (aujourd'hui)"; font-weight: 400; font-size: 0.8rem; color: var(--accent); }
 
-        .hours-table tr {
-            border-bottom: 1px solid #f3ecef;
-            transition: background-color 0.2s;
-        }
-
-        .hours-table tr:last-child {
-            border-bottom: none;
-        }
-
-        .hours-table td {
-            padding: 0.65rem 0.4rem;
-        }
-
-        .hours-table .day {
-            font-weight: 600;
-            color: var(--primary);
-            width: 35%;
-        }
-
-        .hours-table .hours {
-            text-align: right;
-            color: #555;
-        }
-
-        .hours-table .closed-day {
-            color: #e74c3c;
-            font-weight: 700;
-        }
-
-        /* --- Content : Contacts & Map --- */
+        /* --- Contact & carte --- */
         .info-item {
             margin-bottom: 1.2rem;
             display: flex;
@@ -411,9 +263,8 @@
             font-family: var(--font-sans);
             font-size: 0.95rem;
         }
-
         .info-item i {
-            color: #ffffff;
+            color: #fff;
             background: var(--accent);
             width: 34px;
             height: 34px;
@@ -423,15 +274,9 @@
             justify-content: center;
             font-size: 0.9rem;
             flex-shrink: 0;
-            transition: var(--transition);
+            transition: background 0.3s, transform 0.3s;
         }
-
-        .info-item a {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.2s;
-        }
+        .info-item a { color: var(--text); text-decoration: none; font-weight: 600; transition: color 0.2s; overflow-wrap: anywhere; }
 
         .map-container {
             margin-top: auto;
@@ -440,46 +285,43 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             border: 1px solid #eee;
         }
+        .map-container iframe { width: 100%; height: 180px; border: 0; display: block; }
 
-        .map-container iframe {
-            width: 100%;
-            height: 180px;
-            border: 0;
-            display: block;
+        .btn-route {
+            margin-top: 0.8rem;
+            background: var(--primary);
         }
 
-        /* --- Content : Facebook --- */
+        /* --- Facebook --- */
         .facebook-box {
             width: 100%;
             height: 500px;
             border-radius: 12px;
-            overflow-y: auto;
-            overflow-x: hidden;
+            overflow: hidden;
             border: 1px solid #eee;
             background: #fafafa;
-            margin-bottom: 1.2rem;
-        }
-
-        .facebook-box iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* --- Boutons Réseaux --- */
-        .social-buttons {
-            margin-top: auto;
+            margin-bottom: 0.8rem;
             display: flex;
-            flex-direction: column;
-            gap: 10px;
+            justify-content: center;
         }
+        .facebook-box iframe { border: none; max-width: 100%; display: block; }
+
+        .fb-note {
+            font-family: var(--font-sans);
+            font-size: 0.82rem;
+            color: #777;
+            margin-bottom: 1rem;
+        }
+
+        /* --- Boutons --- */
+        .social-buttons { margin-top: auto; display: flex; flex-direction: column; gap: 10px; }
 
         .btn-social {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
-            color: white;
+            color: #fff;
             padding: 0.85rem 1rem;
             border-radius: 10px;
             text-decoration: none;
@@ -487,135 +329,52 @@
             font-weight: 700;
             font-size: 0.95rem;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transition: var(--transition);
+            transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
             width: 100%;
         }
+        .btn-facebook  { background: #1877f2; }
+        .btn-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
 
-        .btn-instagram {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-        }
-
-        /* --- Footer --- */
         footer {
             background-color: var(--primary);
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.85);
             text-align: center;
             padding: 3rem 1rem;
             font-size: 0.95rem;
             margin-top: 5rem;
             font-family: var(--font-sans);
         }
+        footer p { margin-bottom: 0.4rem; }
+        footer a { color: inherit; }
 
-        footer p {
-            margin-bottom: 0.4rem;
-        }
-
-        /* --- Effets au survol : uniquement pour les vrais pointeurs (souris) ---
-           Sur tactile, ":hover" se déclenche au doigt et reste parfois "collé" ou
-           légèrement décalé après le relâchement : ça donne une sensation de lag.
-           On réserve donc tous ces effets aux appareils qui ont une souris. --- */
+        /* Survols : souris uniquement */
         @media (hover: hover) and (pointer: fine) {
-            .header-logo:hover {
-                transform: rotate(5deg) scale(1.05);
-            }
-
-            .card:hover {
-                transform: translateY(-8px);
-                box-shadow: var(--shadow-hover);
-            }
-
-            .card:hover::before {
-                opacity: 0.75;
-                transform: scale(1.08);
-            }
-
-            .card:hover h2::after {
-                width: 75px;
-            }
-
-            .hours-table tr:hover {
-                background-color: #faf3f5;
-            }
-
-            .info-item:hover i {
-                background: var(--primary);
-                transform: scale(1.1);
-            }
-
-            .info-item a:hover {
-                color: var(--accent);
-            }
-
-            .btn-social:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 8px 18px rgba(0,0,0,0.18);
-                opacity: 0.95;
-                color: white;
-            }
+            .header-logo:hover { transform: rotate(5deg) scale(1.05); }
+            .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+            .card:hover h2::after { width: 75px; }
+            .hours-table tr:hover { background-color: #faf3f5; }
+            .info-item:hover i { background: var(--primary); transform: scale(1.1); }
+            .info-item a:hover { color: var(--accent); }
+            .btn-social:hover { transform: translateY(-3px); box-shadow: 0 8px 18px rgba(0,0,0,0.18); }
         }
 
-        /* --- Responsive Mobile Optimisé --- */
         @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                text-align: center;
-                padding: 1rem 1rem;
-                gap: 6px;
-            }
-
-            .header-logo {
-                max-width: 55px;
-            }
-
-            .brand-title {
-                font-size: 0.95rem;
-                margin-bottom: 0.1rem;
-            }
-
-            .header-text p {
-                font-size: 0.9rem;
-            }
-
-            header.scrolled {
-                padding: 0.5rem 1rem;
-            }
-
-            header.scrolled .header-logo {
-                transform: scale(0.65);
-            }
-
-            .hero-section {
-                height: 30vh;
-                min-height: 200px;
-            }
-
-            .container {
-                margin-top: -3rem;
-                padding: 0 0.9rem;
-            }
-
-            .card {
-                padding: 1.6rem 1.3rem;
-                border-radius: 14px;
-            }
-
-            .grid {
-                gap: 1.2rem;
-            }
-
-            .facebook-box {
-                height: 460px;
-            }
+            header { flex-direction: column; text-align: center; padding: 1rem; gap: 6px; }
+            .header-logo { max-width: 55px; }
+            .brand-title { font-size: 0.95rem; }
+            .header-text p { font-size: 0.9rem; }
+            header.scrolled { padding: 0.5rem 1rem; }
+            header.scrolled .header-logo { transform: scale(0.65); }
+            .hero-section { height: 30vh; height: 30svh; min-height: 200px; }
+            .container { margin-top: -3rem; padding: 0 0.9rem; }
+            .card { padding: 1.6rem 1.3rem; border-radius: 14px; }
+            .grid { gap: 1.2rem; }
+            .facebook-box { height: 460px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Requis par le plugin Facebook (fb-page) juste en dessous -->
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v19.0"></script>
-
-    <!-- Header avec Logo -->
     <header>
         <img src="logo.jpg" alt="Logo Imagin'à Lire" class="header-logo" width="90" height="90">
         <div class="header-text">
@@ -624,65 +383,60 @@
         </div>
     </header>
 
-    <!-- Bannière Image Extérieur -->
-    <div class="hero-section"></div>
+    <div class="hero-section" role="img" aria-label="Façade de la librairie Imagin'à Lire"></div>
 
-    <div class="container">
-        
-        <!-- Badge de statut -->
-        <div class="status-container reveal">
-            <span class="status-badge closed" id="status-badge">
-                <i class="fa-solid fa-door-closed" id="status-icon"></i> <span id="status-text">Fermé actuellement</span>
+    <main class="container">
+
+        <div class="status-container">
+            <span class="status-badge" id="status-badge" role="status" aria-live="polite">
+                <span class="status-main"><i class="fa-solid fa-door-closed" id="status-icon"></i> <span id="status-text">Horaires</span></span>
+                <span class="status-sub" id="status-sub"></span>
             </span>
         </div>
 
         <div class="grid">
-            
-            <!-- Colonne 1 : Facebook -->
-            <div class="card reveal">
+
+            <!-- Actualités -->
+            <section class="card">
                 <h2><i class="fa-brands fa-facebook" style="color: var(--accent);"></i> Actualités</h2>
-                
-                <div class="facebook-box">
-                    <div class="fb-page"
-                        data-href="https://www.facebook.com/librairieimaginalire"
-                        data-tabs="timeline"
-                        data-width="500"
-                        data-height="500"
-                        data-small-header="true"
-                        data-adapt-container-width="true"
-                        data-hide-cover="false"
-                        data-show-facepile="false">
-                        <blockquote cite="https://www.facebook.com/librairieimaginalire" class="fb-xfbml-parse-ignore">
-                            <a href="https://www.facebook.com/librairieimaginalire">Imagin'à Lire</a>
-                        </blockquote>
-                    </div>
+
+                <div class="facebook-box" id="fb-box">
+                    <noscript>
+                        <p style="padding:1.5rem;font-family:sans-serif;">Activez JavaScript pour voir le fil Facebook, ou utilisez le bouton ci-dessous.</p>
+                    </noscript>
                 </div>
+                <p class="fb-note">Le fil ne s'affiche pas ? Certains navigateurs ou bloqueurs de publicités bloquent Facebook : ouvrez directement notre page.</p>
 
                 <div class="social-buttons">
+                    <a href="https://www.facebook.com/librairieimaginalire" target="_blank" rel="noopener noreferrer" class="btn-social btn-facebook">
+                        <i class="fa-brands fa-facebook-f fa-lg"></i> Voir notre page Facebook
+                    </a>
                     <a href="https://instagram.com/librairieimaginalire" target="_blank" rel="noopener noreferrer" class="btn-social btn-instagram">
                         <i class="fa-brands fa-instagram fa-lg"></i> Suivre sur Instagram
                     </a>
                 </div>
-            </div>
+            </section>
 
-            <!-- Colonne 2 : Horaires -->
-            <div class="card reveal">
+            <!-- Horaires -->
+            <section class="card">
                 <h2><i class="fa-regular fa-clock" style="color: var(--accent);"></i> Horaires</h2>
                 <table class="hours-table">
-                    <tr><td class="day">Lundi</td><td class="hours">09:00 – 12:00</td></tr>
-                    <tr><td class="day">Mardi</td><td class="hours">09:00 – 12:00<br>14:30 – 18:30</td></tr>
-                    <tr><td class="day">Mercredi</td><td class="hours">09:00 – 12:00<br>14:30 – 18:30</td></tr>
-                    <tr><td class="day">Jeudi</td><td class="hours">09:00 – 12:00<br>14:30 – 18:30</td></tr>
-                    <tr><td class="day">Vendredi</td><td class="hours">09:00 – 12:00<br>14:30 – 18:30</td></tr>
-                    <tr><td class="day">Samedi</td><td class="hours">09:00 – 12:00<br>14:30 – 18:00</td></tr>
-                    <tr><td class="day">Dimanche</td><td class="hours closed-day">Fermé</td></tr>
+                    <tbody>
+                        <tr data-day="1"><td class="day">Lundi</td><td class="hours">09:00 – 12:00</td></tr>
+                        <tr data-day="2"><td class="day">Mardi</td><td class="hours">09:00 – 12:00<br>14:30 – 18:30</td></tr>
+                        <tr data-day="3"><td class="day">Mercredi</td><td class="hours">09:00 – 12:00<br>14:30 – 18:30</td></tr>
+                        <tr data-day="4"><td class="day">Jeudi</td><td class="hours">09:00 – 12:00<br>14:30 – 18:30</td></tr>
+                        <tr data-day="5"><td class="day">Vendredi</td><td class="hours">09:00 – 12:00<br>14:30 – 18:30</td></tr>
+                        <tr data-day="6"><td class="day">Samedi</td><td class="hours">09:00 – 12:00<br>14:30 – 18:00</td></tr>
+                        <tr data-day="0"><td class="day">Dimanche</td><td class="hours closed-day">Fermé</td></tr>
+                    </tbody>
                 </table>
-            </div>
+            </section>
 
-            <!-- Colonne 3 : Nous trouver -->
-            <div class="card reveal">
+            <!-- Nous trouver -->
+            <section class="card">
                 <h2><i class="fa-solid fa-compass" style="color: var(--accent);"></i> Nous trouver</h2>
-                
+
                 <div class="info-item">
                     <i class="fa-solid fa-location-dot"></i>
                     <div>
@@ -696,7 +450,7 @@
                     <i class="fa-solid fa-phone"></i>
                     <div>
                         <strong>Téléphone :</strong><br>
-                        <a href="tel:0674434154">06 74 43 41 54</a>
+                        <a href="tel:+33674434154">06 74 43 41 54</a>
                     </div>
                 </div>
 
@@ -709,111 +463,139 @@
                 </div>
 
                 <div class="map-container">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2793.811802951717!2d5.1362706!3d45.5540941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4d38c644158d7%3A0x6b9d6a36f6d63d0a!2s8%20Pl.%20du%20G%C3%A9n%C3%A9ral%20de%20Gaulle%2C%2038440%20Saint-Jean-de-Bournay!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr" 
-                        title="Localisation Imagin'à Lire sur Google Maps"
-                        allowfullscreen="" 
-                        loading="lazy">
-                    </iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2793.811802951717!2d5.1362706!3d45.5540941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4d38c644158d7%3A0x6b9d6a36f6d63d0a!2s8%20Pl.%20du%20G%C3%A9n%C3%A9ral%20de%20Gaulle%2C%2038440%20Saint-Jean-de-Bournay!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr"
+                            title="Localisation Imagin'à Lire sur Google Maps" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-            </div>
+
+                <a class="btn-social btn-route" target="_blank" rel="noopener noreferrer"
+                   href="https://www.google.com/maps/dir/?api=1&destination=45.5540941,5.1362706">
+                    <i class="fa-solid fa-route"></i> Calculer l'itinéraire
+                </a>
+            </section>
 
         </div>
+    </main>
 
-    </div>
-
-    <!-- Footer -->
-    <footer class="reveal">
-        <p><strong>&copy; Imagin'à Lire — Librairie indépendante</strong></p>
-        <p style="font-size: 0.85rem; opacity: 0.7;">8 Place du Général de Gaulle, 38440 Saint-Jean-de-Bournay</p>
+    <footer>
+        <p><strong>© <span id="year">2026</span> Imagin'à Lire — Librairie indépendante</strong></p>
+        <p style="font-size: 0.85rem; opacity: 0.75;">8 Place du Général de Gaulle, 38440 Saint-Jean-de-Bournay</p>
     </footer>
 
     <script>
-        // --- Fade-in de la page à l'ouverture (style Apple/Tesla) ---
-        window.addEventListener('load', () => {
-            document.body.classList.add('page-loaded');
-        });
+        // --- Pied de page : année automatique ---
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-        // --- Header qui se rétracte au scroll (style apple.com) ---
+        // --- Header qui se réduit au scroll (avec hystérésis anti-vibration) ---
         const siteHeader = document.querySelector('header');
-        let lastScrollState = false;
-        let tickingHeader = false;
-
+        let shrunk = false, ticking = false;
         function applyHeaderState() {
-            // Hystérésis : seuils différents pour rétrécir (60px) et pour revenir (20px).
-            // Sans ça, un scroll qui oscille pile autour d'une seule valeur (rebond iOS,
-            // micro-mouvements tactiles) fait basculer la classe en boucle -> le header
-            // "vibre" en rétrécissant/agrandissant sans arrêt.
             const y = Math.max(0, window.scrollY);
-            let shouldShrink = lastScrollState;
-            if (y > 60) shouldShrink = true;
-            else if (y < 20) shouldShrink = false;
-
-            if (shouldShrink !== lastScrollState) {
-                siteHeader.classList.toggle('scrolled', shouldShrink);
-                lastScrollState = shouldShrink;
+            let next = shrunk;
+            if (y > 60) next = true;
+            else if (y < 20) next = false;
+            if (next !== shrunk) {
+                siteHeader.classList.toggle('scrolled', next);
+                shrunk = next;
             }
-            tickingHeader = false;
+            ticking = false;
         }
+        window.addEventListener('scroll', () => {
+            if (!ticking) { ticking = true; requestAnimationFrame(applyHeaderState); }
+        }, { passive: true });
+        applyHeaderState();
 
-        function updateHeader() {
-            if (!tickingHeader) {
-                tickingHeader = true;
-                requestAnimationFrame(applyHeaderState);
-            }
-        }
-        window.addEventListener('scroll', updateHeader, { passive: true });
-        updateHeader();
+        // --- Fil Facebook : iframe directe (sans SDK), largeur adaptée au conteneur ---
+        // Le plugin Facebook accepte une largeur de 180 à 500 px.
+        (function loadFacebook() {
+            const box = document.getElementById('fb-box');
+            if (!box) return;
+            const width = Math.max(180, Math.min(500, Math.floor(box.clientWidth)));
+            const height = Math.floor(box.clientHeight);
+            const params = new URLSearchParams({
+                href: 'https://www.facebook.com/librairieimaginalire',
+                tabs: 'timeline',
+                width: width,
+                height: height,
+                small_header: 'true',
+                adapt_container_width: 'true',
+                hide_cover: 'false',
+                show_facepile: 'false',
+                locale: 'fr_FR'
+            });
+            const frame = document.createElement('iframe');
+            frame.src = 'https://www.facebook.com/plugins/page.php?' + params.toString();
+            frame.title = "Actualités Facebook d'Imagin'à Lire";
+            frame.width = width;
+            frame.height = height;
+            frame.loading = 'lazy';
+            frame.setAttribute('scrolling', 'no');
+            frame.setAttribute('allow', 'encrypted-media');
+            frame.setAttribute('allowfullscreen', 'true');
+            box.appendChild(frame);
+        })();
 
-        // --- Affichage des cartes : immédiat, sans attendre le scroll ---
-        // (avant : les cartes restaient invisibles tant qu'on ne scrollait pas jusqu'à elles,
-        // ce qui donnait une impression de lenteur/lag à l'apparition)
-        document.querySelectorAll('.reveal').forEach((el) => el.classList.add('in-view'));
-
-        // --- Badge Ouvert / Fermé automatique, basé sur les horaires réels ---
-        // Format : [ [heureDébut, minuteDébut, heureFin, minuteFin], ... ] par jour.
-        // Index : 0 = dimanche, 1 = lundi, ... 6 = samedi (comme Date.getDay()).
+        // --- Horaires : jour courant surligné + badge Ouvert/Fermé (heure de Paris) ---
+        // 0 = dimanche … 6 = samedi ; [heureDébut, minDébut, heureFin, minFin]
         const openingHours = {
-            0: [],                                   // Dimanche : fermé
-            1: [[9, 0, 12, 0]],                       // Lundi
-            2: [[9, 0, 12, 0], [14, 30, 18, 30]],     // Mardi
-            3: [[9, 0, 12, 0], [14, 30, 18, 30]],     // Mercredi
-            4: [[9, 0, 12, 0], [14, 30, 18, 30]],     // Jeudi
-            5: [[9, 0, 12, 0], [14, 30, 18, 30]],     // Vendredi
-            6: [[9, 0, 12, 0], [14, 30, 18, 0]],      // Samedi
+            0: [],
+            1: [[9, 0, 12, 0]],
+            2: [[9, 0, 12, 0], [14, 30, 18, 30]],
+            3: [[9, 0, 12, 0], [14, 30, 18, 30]],
+            4: [[9, 0, 12, 0], [14, 30, 18, 30]],
+            5: [[9, 0, 12, 0], [14, 30, 18, 30]],
+            6: [[9, 0, 12, 0], [14, 30, 18, 0]]
         };
+        const dayNames = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
+        const pad = (n) => String(n).padStart(2, '0');
+        const fmt = (h, m) => pad(h) + ':' + pad(m);
+
+        // Heure actuelle en France, quel que soit le fuseau du visiteur
+        function parisNow() {
+            const parts = new Intl.DateTimeFormat('en-US', {
+                timeZone: 'Europe/Paris', weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23'
+            }).formatToParts(new Date());
+            const get = (t) => parts.find((p) => p.type === t).value;
+            const day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(get('weekday'));
+            return { day, minutes: parseInt(get('hour'), 10) * 60 + parseInt(get('minute'), 10) };
+        }
+
+        function nextOpening(day, minutes) {
+            for (let i = 0; i < 8; i++) {
+                const d = (day + i) % 7;
+                for (const [h1, m1] of openingHours[d]) {
+                    if (i > 0 || h1 * 60 + m1 > minutes) {
+                        const when = i === 0 ? "aujourd'hui" : i === 1 ? 'demain' : dayNames[d];
+                        return 'Ouvre ' + when + ' à ' + fmt(h1, m1);
+                    }
+                }
+            }
+            return '';
+        }
 
         function updateOpenStatus() {
             const badge = document.getElementById('status-badge');
             const icon = document.getElementById('status-icon');
             const text = document.getElementById('status-text');
-            if (!badge) return;
+            const sub = document.getElementById('status-sub');
+            const { day, minutes } = parisNow();
 
-            const now = new Date();
-            const minutesNow = now.getHours() * 60 + now.getMinutes();
-            const ranges = openingHours[now.getDay()] || [];
-
-            const isOpen = ranges.some(([h1, m1, h2, m2]) => {
-                const start = h1 * 60 + m1;
-                const end = h2 * 60 + m2;
-                return minutesNow >= start && minutesNow < end;
+            document.querySelectorAll('.hours-table tr').forEach((tr) => {
+                tr.classList.toggle('today', Number(tr.dataset.day) === day);
             });
 
-            if (isOpen) {
-                badge.classList.remove('closed');
-                badge.classList.add('open');
-                icon.className = 'fa-solid fa-door-open';
-                text.textContent = 'Ouvert actuellement';
-            } else {
-                badge.classList.remove('open');
-                badge.classList.add('closed');
-                icon.className = 'fa-solid fa-door-closed';
-                text.textContent = 'Fermé actuellement';
-            }
+            const current = openingHours[day].find(([h1, m1, h2, m2]) => {
+                return minutes >= h1 * 60 + m1 && minutes < h2 * 60 + m2;
+            });
+
+            badge.classList.toggle('open', !!current);
+            badge.classList.toggle('closed', !current);
+            icon.className = current ? 'fa-solid fa-door-open' : 'fa-solid fa-door-closed';
+            text.textContent = current ? 'Ouvert actuellement' : 'Fermé actuellement';
+            sub.textContent = current ? 'Ferme à ' + fmt(current[2], current[3]) : nextOpening(day, minutes);
         }
 
         updateOpenStatus();
-        setInterval(updateOpenStatus, 60000); // Revérifie chaque minute
+        setInterval(updateOpenStatus, 60000);
     </script>
 
 </body>
